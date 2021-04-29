@@ -1,0 +1,20 @@
+.list {
+  .heading-secondary {
+    padding-left: 5rem;
+  }
+  &-container {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 2rem 5rem;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+.list-lift-up {
+  position: absolute;
+  top: 87.5vh;
+}

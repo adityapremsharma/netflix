@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+  width: 5px;
+  // display: none;
+
+  /* Track */
+  &-track {
+    box-shadow: inset 0 0 5px $black;
+  }
+
+  &-button {
+    background-color: rgba($black, 0.5);
+  }
+
+  /* Handle */
+  &-thumb {
+    background-color: $red;
+
+    &:hover {
+      background-color: rgba($red, 0.75);
+    }
+  }
+}
+
+.scrollbar-hide {
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}

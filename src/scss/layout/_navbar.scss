@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem;
+  .left-side {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    p {
+      font-size: 1.2rem;
+      &:hover {
+        color: rgba($white, 0.75);
+      }
+    }
+    .netflix-logo {
+      margin-right: 5rem;
+    }
+
+    p {
+      &:hover {
+        cursor: pointer;
+      }
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+  .right-side {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    p {
+      font-size: 1.2rem;
+    }
+    i {
+      font-size: 1.5rem;
+    }
+    .input-search {
+      margin-right: 2rem;
+    }
+    p,
+    i {
+      &:hover {
+        cursor: pointer;
+        color: rgba($white, 0.75);
+      }
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+}

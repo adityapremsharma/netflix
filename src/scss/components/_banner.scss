@@ -1,0 +1,36 @@
+.banner {
+  background-size: cover;
+  height: 112.5vh;
+  color: $white;
+  object-fit: contain;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  &-dark {
+    height: 100%;
+    background-color: rgba($black, 0.5);
+  }
+
+  &-details {
+    position: absolute;
+    top: 30%;
+    left: 5rem;
+
+    .para-primary {
+      width: 50rem;
+    }
+  }
+
+  &-linear-gradient {
+    height: 10rem;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(37, 37, 37, 0.61),
+      $black
+    );
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+}
