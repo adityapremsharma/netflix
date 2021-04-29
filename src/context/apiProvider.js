@@ -7,11 +7,14 @@ const apiReducer = (state, action) => {
       return {
         ...state,
         trending: action.payload,
+      };
+    case "NETFLIX_ORIGINALS":
+      return {
+        ...state,
+        netflixOriginals: action.payload,
         banner:
           action.payload[Math.floor(Math.random() * action.payload.length)],
       };
-    case "NETFLIX_ORIGINALS":
-      return { ...state, netflixOriginals: action.payload };
     case "TOP_RATED":
       return { ...state, topRated: action.payload };
     case "ACTION_MOVIES":

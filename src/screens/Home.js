@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react";
+import Navbar from "../components/common/Navbar";
 import Banner from "../components/home/Banner";
 import List from "../components/home/List";
 
@@ -41,6 +42,7 @@ export default function Home() {
   //   console.log(horrorMovies);
   return (
     <div>
+      <Navbar />
       <Banner />
       <div className="list-lift-up">
         <List title="Trending Now" data={trending} verticalCard />

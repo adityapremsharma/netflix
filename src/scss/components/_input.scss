@@ -7,6 +7,7 @@
   visibility: hidden;
   padding: 0.65rem 0;
   transition: all 0.2s;
+  outline: none;
 
   ::placeholder {
     color: rgba($white, 0.75);
@@ -20,8 +21,46 @@
   width: 20rem;
   visibility: visible;
   padding-left: 3rem;
+  padding-right: 0.5rem;
 }
 .search-checkbox:checked ~ .search-icon {
   position: absolute;
   left: 2%;
+}
+
+.search-icon-mobile,
+.input-search-mobile {
+  display: none;
+}
+
+@include respond(phone) {
+  .search-icon-mobile {
+    display: inline-block;
+    position: fixed;
+    top: 3.75rem;
+    right: 2rem;
+    z-index: 1000;
+    transition: all 0.2s;
+    i {
+      font-size: 2rem;
+    }
+  }
+  .input-search-mobile {
+    display: inline-block;
+    position: fixed;
+    width: 0;
+    z-index: 999;
+    top: 2.5rem;
+    right: 2rem;
+    padding: 1.2rem 0;
+    transition: all 0.2s;
+    font-size: 1.5rem;
+  }
+  .search-checkbox-mobile:checked ~ .input-search-mobile {
+    width: 20rem;
+    padding-left: 3.6rem;
+  }
+  .search-checkbox-mobile:checked + .search-icon-mobile {
+    right: 19rem;
+  }
 }

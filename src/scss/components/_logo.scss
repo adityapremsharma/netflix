@@ -1,3 +1,13 @@
 .netflix-logo {
   width: 7.5rem;
 }
+
+.netflix-menu-logo {
+  width: 5rem;
+}
+
+@include respond(phone) {
+  .netflix-logo {
+    width: 15rem;
+  }
+}

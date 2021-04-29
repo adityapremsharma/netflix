@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Context as ApiContext } from "../../context/apiProvider";
-import Navbar from "../common/Navbar";
 
 export default function Banner() {
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
@@ -8,7 +7,7 @@ export default function Banner() {
     state: { banner },
   } = useContext(ApiContext);
 
-  console.log(banner);
+  // console.log(banner);
 
   const overview =
     banner?.overview.length > 150
@@ -23,7 +22,6 @@ export default function Banner() {
       }}
     >
       <div className="banner-dark">
-        <Navbar />
         <div className="banner-details">
           <h1 className="heading-primary">
             {banner?.original_title || banner?.name}

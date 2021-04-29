@@ -2,6 +2,14 @@
   display: flex;
   justify-content: space-between;
   padding: 2rem 5rem;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background-image: linear-gradient(
+    $black,
+    rgba(37, 37, 37, 0.61),
+    transparent
+  );
   .left-side {
     display: flex;
     justify-content: flex-start;
@@ -14,6 +22,10 @@
     }
     .netflix-logo {
       margin-right: 5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     p {
@@ -47,6 +59,86 @@
       }
       &:not(:last-child) {
         margin-right: 2rem;
+      }
+    }
+  }
+}
+
+.netflix-menu-checkbox {
+  display: none;
+}
+.netflix-menu-icon {
+  display: none;
+}
+
+@include respond(phone) {
+  .netflix-menu-icon {
+    display: block;
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    z-index: 1000;
+  }
+  .netflix-menu-checkbox:checked ~ .navbar {
+    visibility: visible;
+    opacity: 1;
+  }
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $black;
+    overflow: hidden;
+    display: block;
+    text-align: center;
+    padding: 5rem;
+    @include verticalCenter;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+
+    .left-side {
+      display: block;
+
+      p {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      .netflix-logo {
+        margin-right: 0;
+        margin-bottom: 5rem;
+      }
+
+      p {
+        &:not(:last-child) {
+          margin-right: 0;
+        }
+      }
+    }
+    .right-side {
+      display: block;
+      p {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+      }
+      i {
+        font-size: 3rem;
+        &:not(:last-child) {
+          padding-right: 2rem;
+        }
+      }
+      .input-search,
+      .fa-search {
+        display: none;
+      }
+      p,
+      i {
+        &:not(:last-child) {
+          margin-right: 0;
+        }
       }
     }
   }

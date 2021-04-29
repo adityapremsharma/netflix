@@ -9,7 +9,8 @@
 
   &:hover {
     transform: perspective(1px) scale(1.2);
-    z-index: 999;
+    z-index: 1001;
+    cursor: pointer;
   }
 }
 

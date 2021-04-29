@@ -13,11 +13,11 @@
 
   &-details {
     position: absolute;
-    top: 30%;
+    top: 32%;
     left: 5rem;
 
     .para-primary {
-      width: 50rem;
+      max-width: 50rem;
     }
   }
 
@@ -32,5 +32,14 @@
     position: absolute;
     width: 100%;
     bottom: 0;
+  }
+}
+
+@include respond(phone) {
+  .banner {
+    &-details {
+      left: 2rem;
+      margin-right: 2rem;
+    }
   }
 }
