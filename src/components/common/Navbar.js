@@ -34,15 +34,7 @@ export default function Navbar() {
         id="search-mobile"
         className="search-checkbox search-checkbox-mobile"
       />
-      <label
-        htmlFor="search-mobile"
-        className="search-icon-mobile"
-        onClick={() => {
-          setTimeout(() => {
-            focusInput.current.focus();
-          }, 200);
-        }}
-      >
+      <label htmlFor="search-mobile" className="search-icon-mobile">
         <i className="fas fa-search"></i>
       </label>
       <input
