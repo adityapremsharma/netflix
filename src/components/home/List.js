@@ -10,10 +10,7 @@ export default function List(props) {
   const { title, data, verticalCard } = props;
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
 
-  const {
-    state: { backgroundDark },
-    setBackgroundDark,
-  } = useContext(StylesContext);
+  const { setBackgroundDark } = useContext(StylesContext);
 
   const {
     state: { searchInput },
