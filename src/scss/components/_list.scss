@@ -1,18 +1,38 @@
 .list {
   .heading-secondary {
     padding-left: 5rem;
+    position: relative;
 
-    i {
-      padding-left: 1rem;
+    .explore-button {
+      margin-left: -6rem;
       visibility: hidden;
       opacity: 0;
-      transition: all 0.2s;
+      transition: opacity 0.5s, margin-left 0.5s, visibility 0.5s;
+      i {
+        margin-left: 1rem;
+      }
+      span {
+        font-size: 1rem;
+        text-transform: uppercase;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s, margin-left 0.5s, visibility 0.5s;
+      }
+      &:hover {
+        color: rgba($white, 0.75);
+        cursor: pointer;
+        margin-left: 1rem;
+
+        span {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
     }
     &:hover {
-      i {
+      .explore-button {
         visibility: visible;
         opacity: 1;
-        cursor: pointer;
       }
     }
   }

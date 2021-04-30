@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import Card from "./Card";
 
 import movieTrailer from "movie-trailer";
@@ -54,7 +55,12 @@ export default function List(props) {
       {!searchInput && (
         <h1 className="heading-secondary">
           {title}
-          <i class="fas fa-chevron-right"></i>
+          <Link to="/message">
+            <span className="explore-button">
+              <span>Explore all</span>
+              <i class="fas fa-chevron-right"></i>
+            </span>
+          </Link>
         </h1>
       )}
       <div className="list-container">
