@@ -34,7 +34,8 @@ export default function List(props) {
       setDisplayData(data);
     } else {
       const filteredData = data.filter((ele) => {
-        return ele.name?.toLowerCase().includes(searchInput.toLowerCase());
+        const name = ele?.name || ele?.title;
+        return name.toLowerCase().includes(searchInput.toLowerCase());
       });
       setDisplayData(filteredData);
     }
