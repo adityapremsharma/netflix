@@ -18,7 +18,7 @@ export default function List(props) {
 
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
-  const [displayData, setDisplayData] = useState(data);
+  const [displayData, setDisplayData] = useState([]);
 
   const opts = {
     height: "390",
@@ -37,8 +37,7 @@ export default function List(props) {
       });
       setDisplayData(filteredData);
     }
-    // eslint-disable-next-line
-  }, [searchInput]);
+  }, [searchInput, data]);
 
   const displayTrailer = (movieTitle) => {
     setDisplayTrailerCard(true);
