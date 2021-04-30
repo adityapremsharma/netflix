@@ -18,7 +18,7 @@ export default function List(props) {
 
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
-  const [displayData, setDisplayData] = useState([]);
+  const [displayData, setDisplayData] = useState(data);
 
   const opts = {
     height: "390",
