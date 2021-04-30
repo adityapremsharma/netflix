@@ -10,7 +10,7 @@ export default function Banner() {
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
   const opts = {
     height: "390",
-    width: "75%",
+    width: "100%",
     playerVars: {
       autoplay: 1,
     },
