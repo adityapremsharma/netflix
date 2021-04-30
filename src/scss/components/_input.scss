@@ -57,10 +57,20 @@
     font-size: 1.5rem;
   }
   .search-checkbox-mobile:checked ~ .input-search-mobile {
-    width: 20rem;
     padding-left: 3.6rem;
   }
   .search-checkbox-mobile:checked + .search-icon-mobile {
     right: 19rem;
+  }
+}
+
+@include respond(teb-land) {
+  .search-checkbox:checked ~ .input-search {
+    width: 15rem;
+  }
+}
+@include respond(tab-port) {
+  .search-checkbox:checked ~ .input-search {
+    width: 17.5rem;
   }
 }

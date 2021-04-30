@@ -5,12 +5,15 @@ import reportWebVitals from "./reportWebVitals";
 import "./scss/main.scss";
 
 import { Provider as ApiProvider } from "./context/apiProvider";
+import { Provider as StylesProvider } from "./context/stylesProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ApiProvider>
-      <App />
-    </ApiProvider>
+    <StylesProvider>
+      <ApiProvider>
+        <App />
+      </ApiProvider>
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

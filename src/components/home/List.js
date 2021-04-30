@@ -1,33 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Card from "./Card";
-import YouTube from "react-youtube";
+
 import movieTrailer from "movie-trailer";
+import { Context as StylesContext } from "../../context/stylesProvider";
+import Trailer from "../common/Trailer";
 
 export default function List(props) {
   const { title, data, verticalCard } = props;
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
+
+  const {
+    state: { backgroundDark },
+    setBackgroundDark,
+  } = useContext(StylesContext);
+  console.log(backgroundDark);
+
   const [trailerURL, setTrailerURL] = useState("");
+  const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
 
   const opts = {
     height: "390",
-    width: "100%",
+    width: "75%",
     playerVars: {
       autoplay: 1,
     },
   };
 
   const displayTrailer = (movieTitle) => {
-    if (trailerURL) {
-      setTrailerURL("");
-    } else {
-      movieTrailer(movieTitle || "")
-        .then((url) => {
-          console.log(url);
-          const urlParams = new URLSearchParams(new URL(url).search);
-          setTrailerURL(urlParams.get("v"));
-        })
-        .catch((err) => console.log(err));
-    }
+    setDisplayTrailerCard(true);
+    setBackgroundDark(true);
+    movieTrailer(movieTitle || "")
+      .then((url) => {
+        const urlParams = new URLSearchParams(new URL(url).search);
+        setTrailerURL(urlParams.get("v"));
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="list">
@@ -49,7 +56,14 @@ export default function List(props) {
           );
         })}
       </div>
-      {trailerURL && <YouTube videoId={trailerURL} opts={opts} />}
+      <Trailer
+        displayTrailerCard={displayTrailerCard}
+        trailerURL={trailerURL}
+        setTrailerURL={setTrailerURL}
+        setDisplayTrailerCard={setDisplayTrailerCard}
+        setBackgroundDark={setBackgroundDark}
+        opts={opts}
+      />
     </div>
   );
 }

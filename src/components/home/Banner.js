@@ -7,8 +7,6 @@ export default function Banner() {
     state: { banner },
   } = useContext(ApiContext);
 
-  // console.log(banner);
-
   const overview =
     banner?.overview.length > 150
       ? `${banner?.overview.substring(0, 150)}...`

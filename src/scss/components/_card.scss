@@ -17,3 +17,41 @@
 .card-vertical {
   max-height: 20rem;
 }
+
+.video-card {
+  position: fixed;
+  top: 5%;
+  bottom: 5%;
+  left: 5%;
+  right: 5%;
+  z-index: 1002;
+  background-color: $black;
+  @include verticalCenter;
+  text-align: center;
+  animation: scaleIn 0.5s;
+
+  .video-center {
+    @include setVerticalCenter;
+  }
+  i {
+    font-size: 4rem;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  p {
+    color: rgba($white, 0.5);
+  }
+}
+
+@include respond(phone) {
+  .video-card {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

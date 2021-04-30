@@ -4,8 +4,12 @@ import Banner from "../components/home/Banner";
 import List from "../components/home/List";
 
 import { Context as ApiContext } from "../context/apiProvider";
+// import { Context as StylesContext } from "../context/stylesProvider";
 
 export default function Home() {
+  // const {
+  //   state: { backgroundDark },
+  // } = useContext(StylesContext);
   const {
     state: {
       trending,
@@ -39,7 +43,6 @@ export default function Home() {
     // eslint-disable-next-line
   }, []);
 
-  //   console.log(horrorMovies);
   return (
     <div>
       <Navbar />
