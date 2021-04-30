@@ -51,7 +51,12 @@ export default function List(props) {
   };
   return (
     <div className="list">
-      {!searchInput && <h1 className="heading-secondary">{title}</h1>}
+      {!searchInput && (
+        <h1 className="heading-secondary">
+          {title}
+          <i class="fas fa-chevron-right"></i>
+        </h1>
+      )}
       <div className="list-container">
         {displayData.map((item) => {
           const imagePath = verticalCard
