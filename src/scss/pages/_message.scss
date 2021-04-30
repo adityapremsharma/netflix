@@ -1,0 +1,14 @@
+.message {
+  height: 100vh;
+  background-color: $black;
+  @include verticalCenter;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+  text-align: center;
+
+  p {
+    color: rgba($white, 0.5);
+    margin-bottom: 5rem;
+  }
+}

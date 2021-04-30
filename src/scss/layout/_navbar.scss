@@ -47,12 +47,15 @@
     }
     i {
       font-size: 1.5rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .input-search {
       margin-right: 2rem;
     }
     p,
-    i {
+    a {
       &:hover {
         cursor: pointer;
         color: rgba($white, 0.75);
@@ -104,6 +107,7 @@
         font-size: 2rem;
         margin-bottom: 2.5rem;
       }
+
       .netflix-logo {
         margin-right: 0;
         margin-bottom: 5rem;
@@ -121,6 +125,7 @@
         font-size: 2rem;
         margin-bottom: 2.5rem;
       }
+
       i {
         font-size: 3rem;
         &:not(:last-child) {

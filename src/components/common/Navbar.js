@@ -1,4 +1,5 @@
 import React, { useRef, useContext } from "react";
+import { Link } from "react-router-dom";
 import netflixLogo from "../../media/images/netflix-logo.svg";
 import netflixMenuLogo from "../../media/images/netflix-logo.png";
 import { Context as StreamContext } from "../../context/streamProvider";
@@ -61,12 +62,29 @@ export default function Navbar() {
       />
       <nav className="navbar">
         <div className="left-side">
-          <img src={netflixLogo} alt="netflix-logo" className="netflix-logo" />
-          <p>Home</p>
-          <p>TV Shows</p>
-          <p>Movies</p>
-          <p>News & Popular</p>
-          <p>My List</p>
+          <Link to="/">
+            <img
+              src={netflixLogo}
+              alt="netflix-logo"
+              className="netflix-logo"
+            />
+          </Link>
+          <p>
+            <Link to="/message">Home</Link>
+          </p>
+          <p>
+            <Link to="/message">TV Shows</Link>
+          </p>
+          <p>
+            <Link to="/message">Movies</Link>
+          </p>
+          <p>
+            <Link to="/message">News & Popular</Link>
+          </p>
+
+          <p>
+            <Link to="/message">My List</Link>
+          </p>
         </div>
         <div className="right-side">
           <input type="checkbox" id="search" className="search-checkbox" />
@@ -91,10 +109,18 @@ export default function Navbar() {
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
-          <p>CHILDREN</p>
-          <i className="fas fa-gift"></i>
-          <i className="fas fa-bell"></i>
-          <i className="fas fa-user"></i>
+          <p>
+            <Link to="/message">CHILDREN</Link>
+          </p>
+          <Link to="/message">
+            <i className="fas fa-gift"></i>
+          </Link>
+          <Link to="/message">
+            <i className="fas fa-bell"></i>
+          </Link>
+          <Link to="/message">
+            <i className="fas fa-user"></i>
+          </Link>
         </div>
       </nav>
     </div>

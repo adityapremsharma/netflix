@@ -43,7 +43,7 @@ export default function Home() {
     fetchDocumentaries();
     // eslint-disable-next-line
   }, []);
-
+  console.log(netflixOriginals);
   return (
     <div>
       <Navbar />
