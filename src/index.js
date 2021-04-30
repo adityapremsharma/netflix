@@ -6,14 +6,17 @@ import "./scss/main.scss";
 
 import { Provider as ApiProvider } from "./context/apiProvider";
 import { Provider as StylesProvider } from "./context/stylesProvider";
+import { Provider as StreamProvider } from "./context/streamProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StylesProvider>
-      <ApiProvider>
-        <App />
-      </ApiProvider>
-    </StylesProvider>
+    <StreamProvider>
+      <StylesProvider>
+        <ApiProvider>
+          <App />
+        </ApiProvider>
+      </StylesProvider>
+    </StreamProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

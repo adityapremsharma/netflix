@@ -1,8 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Card from "./Card";
 
 import movieTrailer from "movie-trailer";
 import { Context as StylesContext } from "../../context/stylesProvider";
+import { Context as StreamContext } from "../../context/streamProvider";
 import Trailer from "../common/Trailer";
 
 export default function List(props) {
@@ -13,10 +14,14 @@ export default function List(props) {
     state: { backgroundDark },
     setBackgroundDark,
   } = useContext(StylesContext);
-  console.log(backgroundDark);
+
+  const {
+    state: { searchInput },
+  } = useContext(StreamContext);
 
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
+  const [displayData, setDisplayData] = useState([]);
 
   const opts = {
     height: "390",
@@ -25,6 +30,18 @@ export default function List(props) {
       autoplay: 1,
     },
   };
+
+  useEffect(() => {
+    if (searchInput === "") {
+      setDisplayData(data);
+    } else {
+      const filteredData = data.filter((ele) => {
+        return ele.name?.toLowerCase().includes(searchInput.toLowerCase());
+      });
+      setDisplayData(filteredData);
+    }
+    // eslint-disable-next-line
+  }, [searchInput]);
 
   const displayTrailer = (movieTitle) => {
     setDisplayTrailerCard(true);
@@ -38,9 +55,9 @@ export default function List(props) {
   };
   return (
     <div className="list">
-      <h1 className="heading-secondary">{title}</h1>
+      {!searchInput && <h1 className="heading-secondary">{title}</h1>}
       <div className="list-container">
-        {data.map((item) => {
+        {displayData.map((item) => {
           const imagePath = verticalCard
             ? item.poster_path
             : item.backdrop_path;

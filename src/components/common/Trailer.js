@@ -26,7 +26,10 @@ export default function Trailer(props) {
             {trailerURL ? (
               <YouTube videoId={trailerURL} opts={opts} />
             ) : (
-              <p>Trailer for this is not available.</p>
+              <p>
+                Oops! Trailer for this is not available. Try some other
+                trailers.
+              </p>
             )}
           </div>
         </div>

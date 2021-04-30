@@ -4,12 +4,9 @@ import Banner from "../components/home/Banner";
 import List from "../components/home/List";
 
 import { Context as ApiContext } from "../context/apiProvider";
-// import { Context as StylesContext } from "../context/stylesProvider";
+import { Context as StreamContext } from "../context/streamProvider";
 
 export default function Home() {
-  // const {
-  //   state: { backgroundDark },
-  // } = useContext(StylesContext);
   const {
     state: {
       trending,
@@ -31,6 +28,10 @@ export default function Home() {
     fetchDocumentaries,
   } = useContext(ApiContext);
 
+  const {
+    state: { searchInput },
+  } = useContext(StreamContext);
+
   useEffect(() => {
     fetchTrending();
     fetchNetflixOriginals();
@@ -47,7 +48,11 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
-      <div className="list-lift-up">
+      <div
+        className={
+          !searchInput ? "list-lift-up" : "list-lift-up list-lift-up-search"
+        }
+      >
         <List title="Trending Now" data={trending} verticalCard />
         <List title="Netflix Originals" data={netflixOriginals} verticalCard />
         <List title="Top Rated" data={topRated} />

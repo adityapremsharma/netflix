@@ -1,11 +1,16 @@
 import React, { useContext } from "react";
 import { Context as ApiContext } from "../../context/apiProvider";
+import { Context as StreamContext } from "../../context/streamProvider";
 
 export default function Banner() {
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
   const {
     state: { banner },
   } = useContext(ApiContext);
+
+  const {
+    state: { searchInput },
+  } = useContext(StreamContext);
 
   const overview =
     banner?.overview.length > 150
@@ -14,7 +19,7 @@ export default function Banner() {
 
   return (
     <header
-      className="banner"
+      className={!searchInput ? "banner" : "banner banner-search"}
       style={{
         backgroundImage: `url(${baseImageURL + banner?.backdrop_path})`,
       }}

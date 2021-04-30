@@ -63,14 +63,3 @@
     right: 19rem;
   }
 }
-
-@include respond(teb-land) {
-  .search-checkbox:checked ~ .input-search {
-    width: 15rem;
-  }
-}
-@include respond(tab-port) {
-  .search-checkbox:checked ~ .input-search {
-    width: 17.5rem;
-  }
-}

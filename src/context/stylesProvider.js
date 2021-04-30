@@ -2,7 +2,7 @@ import createDataContext from "./createDataContext";
 
 const stylesReducer = (state, action) => {
   switch (action.type) {
-    case "BACKGROUND_Dark":
+    case "BACKGROUND_DARK":
       return { ...state, backgroundDark: action.payload };
     default:
       return state;
@@ -11,7 +11,7 @@ const stylesReducer = (state, action) => {
 
 const setBackgroundDark = (dispatch) => {
   return (getBackgroundDark) => {
-    dispatch({ type: "BACKGROUND_Dark", payload: getBackgroundDark });
+    dispatch({ type: "BACKGROUND_DARK", payload: getBackgroundDark });
   };
 };
 

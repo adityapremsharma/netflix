@@ -1,9 +1,17 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import netflixLogo from "../../media/images/netflix-logo.svg";
 import netflixMenuLogo from "../../media/images/netflix-logo.png";
+import { Context as StreamContext } from "../../context/streamProvider";
 
 export default function Navbar() {
+  let focusInput = useRef(null);
   // const [showNavbarBackground, setShowNavbarBackground] = useState(false);
+
+  const {
+    state: { searchInput },
+    setSearchInput,
+  } = useContext(StreamContext);
+
   // useEffect(() => {
   //   window.addEventListener("scroll", () => {
   //     if (window.scrollY !== 0) {
@@ -17,7 +25,7 @@ export default function Navbar() {
   //   };
   // }, []);
 
-  let focusInput = useRef(null);
+  console.log(searchInput);
 
   return (
     <div>
@@ -34,7 +42,13 @@ export default function Navbar() {
         id="search-mobile"
         className="search-checkbox search-checkbox-mobile"
       />
-      <label htmlFor="search-mobile" className="search-icon-mobile">
+      <label
+        htmlFor="search-mobile"
+        className="search-icon-mobile"
+        onClick={() => {
+          setSearchInput("");
+        }}
+      >
         <i className="fas fa-search"></i>
       </label>
       <input
@@ -42,6 +56,8 @@ export default function Navbar() {
         placeholder="Titles, People, Genres"
         className="input-search input-search-mobile"
         ref={focusInput}
+        value={searchInput}
+        onChange={(e) => setSearchInput(e.target.value)}
       />
       <nav className="navbar">
         <div className="left-side">
@@ -58,6 +74,7 @@ export default function Navbar() {
             htmlFor="search"
             className="search-icon"
             onClick={() => {
+              setSearchInput("");
               setTimeout(() => {
                 focusInput.current.focus();
               }, 200);
@@ -71,6 +88,8 @@ export default function Navbar() {
             placeholder="Titles, People, Genres"
             className="input-search"
             ref={focusInput}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
           />
           <p>CHILDREN</p>
           <i className="fas fa-gift"></i>

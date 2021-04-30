@@ -16,6 +16,11 @@
 .list-lift-up {
   position: absolute;
   top: 87.5vh;
+  transition: all 0.5s;
+}
+
+.list-lift-up-search {
+  top: 10rem;
 }
 
 @include respond(phone) {
