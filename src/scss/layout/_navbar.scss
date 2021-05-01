@@ -10,10 +10,22 @@
     rgba(37, 37, 37, 0.61),
     transparent
   );
+
+  a {
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
   .left-side {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    &-item {
+      display: flex;
+    }
+    .menu-tab {
+      display: none;
+    }
     p {
       font-size: 1.2rem;
       &:hover {
@@ -28,12 +40,9 @@
       }
     }
 
-    p {
+    a {
       &:hover {
         cursor: pointer;
-      }
-      &:not(:last-child) {
-        margin-right: 2rem;
       }
     }
   }
@@ -60,9 +69,6 @@
         cursor: pointer;
         color: rgba($white, 0.75);
       }
-      &:not(:last-child) {
-        margin-right: 2rem;
-      }
     }
   }
 }
@@ -72,6 +78,49 @@
 }
 .netflix-menu-icon {
   display: none;
+}
+
+@include respond(tab-port) {
+  .navbar {
+    .left-side {
+      &-item {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 17.5rem;
+        top: 75%;
+        visibility: hidden;
+        opacity: 0;
+        background-color: rgba($white, 0.25);
+        border-radius: 5px;
+        transition: all 0.5s;
+        a {
+          &:not(:last-child) {
+            margin-right: 0;
+          }
+        }
+        p {
+          width: 12rem;
+          padding: 0.75rem;
+        }
+      }
+
+      .menu-tab {
+        display: flex;
+        font-size: 1.2rem;
+        i {
+          margin-left: 1rem;
+        }
+        &:hover {
+          color: rgba($white, 0.5);
+        }
+        &:hover ~ .left-side-item {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 
 @include respond(phone) {
@@ -99,10 +148,19 @@
     visibility: hidden;
     opacity: 0;
     transition: all 0.5s;
+    a {
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+    }
 
     .left-side {
       display: block;
 
+      &-item {
+        display: block;
+        margin-bottom: 2rem;
+      }
       p {
         font-size: 2rem;
         margin-bottom: 2.5rem;
@@ -127,11 +185,15 @@
         margin-bottom: 2.5rem;
       }
 
+      a {
+        &:not(:last-child) {
+          i {
+            margin-right: 2rem;
+          }
+        }
+      }
       i {
         font-size: 3rem;
-        &:not(:last-child) {
-          padding-right: 2rem;
-        }
       }
       .input-search,
       .fa-search {

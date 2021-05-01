@@ -69,22 +69,28 @@ export default function Navbar() {
               className="netflix-logo"
             />
           </Link>
-          <p>
-            <Link to="/message">Home</Link>
-          </p>
-          <p>
-            <Link to="/message">TV Shows</Link>
-          </p>
-          <p>
-            <Link to="/message">Movies</Link>
-          </p>
-          <p>
-            <Link to="/message">News & Popular</Link>
-          </p>
+          <div className="menu-tab">
+            Menu
+            <i className="fas fa-sort-down"></i>
+          </div>
+          <div className="left-side-item">
+            <Link to="/message">
+              <p>Home</p>
+            </Link>
+            <Link to="/message">
+              <p>TV Shows</p>
+            </Link>
+            <Link to="/message">
+              <p>Movies</p>
+            </Link>
+            <Link to="/message">
+              <p>News & Popular</p>
+            </Link>
 
-          <p>
-            <Link to="/message">My List</Link>
-          </p>
+            <Link to="/message">
+              <p>My List</p>
+            </Link>
+          </div>
         </div>
         <div className="right-side">
           <input type="checkbox" id="search" className="search-checkbox" />
@@ -109,9 +115,9 @@ export default function Navbar() {
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
           />
-          <p>
-            <Link to="/message">CHILDREN</Link>
-          </p>
+          <Link to="/message">
+            <p>CHILDREN</p>
+          </Link>
           <Link to="/message">
             <i className="fas fa-gift"></i>
           </Link>
