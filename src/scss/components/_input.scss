@@ -37,7 +37,7 @@
   .search-icon-mobile {
     display: inline-block;
     position: fixed;
-    top: 3.75rem;
+    top: 3.5rem;
     right: 2rem;
     z-index: 999;
     transition: all 0.2s;
@@ -54,12 +54,12 @@
     right: 2rem;
     padding: 1.2rem 0;
     transition: all 0.2s;
-    font-size: 1.5rem;
   }
   .search-checkbox-mobile:checked ~ .input-search-mobile {
     padding-left: 3.6rem;
+    width: 17.5rem;
   }
   .search-checkbox-mobile:checked + .search-icon-mobile {
-    right: 19rem;
+    right: 16.5rem;
   }
 }

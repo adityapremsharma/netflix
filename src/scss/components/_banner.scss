@@ -16,9 +16,10 @@
     position: absolute;
     top: 32%;
     left: 5rem;
+    right: 5rem;
 
     .para-primary {
-      max-width: 50rem;
+      max-width: 55rem;
     }
   }
 
@@ -45,7 +46,7 @@
   .banner {
     &-details {
       left: 2rem;
-      margin-right: 2rem;
+      right: 2rem;
     }
   }
 }
