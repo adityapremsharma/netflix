@@ -9,6 +9,7 @@ export default function Trailer(props) {
     setDisplayTrailerCard,
     setBackgroundDark,
     opts,
+    title,
   } = props;
   return (
     displayTrailerCard && (
@@ -27,7 +28,7 @@ export default function Trailer(props) {
               <YouTube videoId={trailerURL} opts={opts} />
             ) : (
               <p>
-                Oops! Trailer for this is not available. Try some other
+                Oops! Trailer for {title} is not available. Try some other
                 trailers.
               </p>
             )}

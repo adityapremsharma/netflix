@@ -92,6 +92,7 @@ export default function Banner() {
         setDisplayTrailerCard={setDisplayTrailerCard}
         setBackgroundDark={setBackgroundDark}
         opts={opts}
+        title={banner?.original_title || banner?.name}
       />
     </header>
   );

@@ -5,7 +5,7 @@ import movieTrailer from "movie-trailer";
 import { Context as StylesContext } from "../../context/stylesProvider";
 
 export default function VerticalScrollableList(props) {
-  const { goBack, searchHeading, searchData } = props;
+  const { goBack, searchHeading, searchData, searchInput } = props;
 
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
 
@@ -19,10 +19,12 @@ export default function VerticalScrollableList(props) {
 
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
+  const [movieTitle, setMovieTitle] = useState("");
 
   const { setBackgroundDark } = useContext(StylesContext);
 
   const displayTrailer = (movieTitle) => {
+    setMovieTitle(movieTitle);
     setDisplayTrailerCard(true);
     setBackgroundDark(true);
     movieTrailer(movieTitle || "")
@@ -35,23 +37,30 @@ export default function VerticalScrollableList(props) {
   return (
     <div className="vertical-scrollable-list">
       <h2 className="heading-secondary">
-        {searchHeading ? searchHeading : null}
+        {searchHeading ? searchHeading : "Search Results"}
       </h2>
       <div className="go-back-button" onClick={goBack}>
         <i className="fas fa-chevron-left"></i>
         <span>Go back</span>
       </div>
-      <div className="vertical-scrollable-list-container">
-        {searchData.map((item) => (
-          <Card
-            key={item?.id}
-            image={baseImageURL + item?.poster_path}
-            title={item?.name || item?.title}
-            className="card-search"
-            onClick={displayTrailer}
-          />
-        ))}
-      </div>
+
+      {searchData.length ? (
+        <div className="vertical-scrollable-list-container">
+          {searchData.map((item) => (
+            <Card
+              key={item?.id}
+              image={baseImageURL + item?.poster_path}
+              title={item?.name || item?.title}
+              className="card-search"
+              onClick={displayTrailer}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="vertical-scrollable-list-message">
+          <p>No results available for {searchInput}.</p>
+        </div>
+      )}
       <Trailer
         displayTrailerCard={displayTrailerCard}
         trailerURL={trailerURL}
@@ -59,6 +68,7 @@ export default function VerticalScrollableList(props) {
         setDisplayTrailerCard={setDisplayTrailerCard}
         setBackgroundDark={setBackgroundDark}
         opts={opts}
+        title={movieTitle}
       />
     </div>
   );

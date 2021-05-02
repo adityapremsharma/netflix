@@ -165,6 +165,7 @@ export default function Home() {
             goBack={goBack}
             searchHeading={searchHeading}
             searchData={searchData}
+            searchInput={searchInput}
           />
         )}
       </div>

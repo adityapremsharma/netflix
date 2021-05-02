@@ -19,6 +19,7 @@ export default function List(props) {
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
   const [displayData, setDisplayData] = useState([]);
+  const [movieTitle, seMovieTitle] = useState("");
 
   const opts = {
     height: "390",
@@ -41,6 +42,7 @@ export default function List(props) {
   }, [searchInput, data]);
 
   const displayTrailer = (movieTitle) => {
+    seMovieTitle(movieTitle);
     setDisplayTrailerCard(true);
     setBackgroundDark(true);
     movieTrailer(movieTitle || "")
@@ -85,6 +87,7 @@ export default function List(props) {
         setDisplayTrailerCard={setDisplayTrailerCard}
         setBackgroundDark={setBackgroundDark}
         opts={opts}
+        title={movieTitle}
       />
     </div>
   );
