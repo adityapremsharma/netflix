@@ -27,6 +27,8 @@ const apiReducer = (state, action) => {
       return { ...state, romanceMovies: action.payload };
     case "DOCUMENTARIES":
       return { ...state, documentaries: action.payload };
+    case "ALL_DATA":
+      return { ...state, allData: action.payload };
     default:
       return state;
   }
@@ -168,6 +170,26 @@ const fetchDocumentaries = (dispatch) => {
   };
 };
 
+const getAllData = (dispatch, state) => {
+  return () => {
+    const getAllData = [
+      ...state.trending,
+      ...state.netflixOriginals,
+      ...state.topRated,
+      ...state.actionMovies,
+      ...state.comedyMovies,
+      ...state.horrorMovies,
+      ...state.romanceMovies,
+      ...state.documentaries,
+    ];
+
+    const uniqueData = getAllData.filter(
+      (data, index, self) => index === self.findIndex((t) => t?.id === data?.id)
+    );
+    dispatch({ type: "ALL_DATA", payload: uniqueData });
+  };
+};
+
 export const { Context, Provider } = createDataContext(
   apiReducer,
   {
@@ -179,6 +201,7 @@ export const { Context, Provider } = createDataContext(
     fetchHorrorMovies,
     fetchRomanceMovies,
     fetchDocumentaries,
+    getAllData,
   },
   {
     trending: [],
@@ -190,5 +213,6 @@ export const { Context, Provider } = createDataContext(
     romanceMovies: [],
     documentaries: [],
     banner: null,
+    allData: [],
   }
 );

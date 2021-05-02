@@ -26,8 +26,6 @@ export default function Navbar() {
   //   };
   // }, []);
 
-  console.log(searchInput);
-
   return (
     <div>
       <input type="checkbox" id="navbar" className="netflix-menu-checkbox" />
