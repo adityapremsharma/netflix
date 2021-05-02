@@ -91,9 +91,13 @@
         top: 75%;
         visibility: hidden;
         opacity: 0;
-        background-color: rgba($white, 0.25);
+        background-color: rgba($black, 0.75);
         border-radius: 5px;
         transition: all 0.5s;
+        &:hover {
+          visibility: visible;
+          opacity: 1;
+        }
         a {
           &:not(:last-child) {
             margin-right: 0;
@@ -113,6 +117,7 @@
         }
         &:hover {
           color: rgba($white, 0.5);
+          cursor: pointer;
         }
         &:hover ~ .left-side-item {
           visibility: visible;
