@@ -83,6 +83,10 @@ export default function Banner() {
             </Link>
           </div>
         </div>
+        <p className="message-developer">
+          Developed with ❤️ by Aditya Prem Sharma using React.JS for practice
+          purposes.
+        </p>
       </div>
       <div className="banner-linear-gradient" />
       <Trailer

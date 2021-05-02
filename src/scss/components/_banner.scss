@@ -29,6 +29,14 @@
     }
   }
 
+  .message-developer {
+    @include absCenter;
+    top: 72%;
+    width: 100%;
+    text-align: center;
+    color: rgba($white, 0.5);
+  }
+
   &-linear-gradient {
     height: 10rem;
     background-image: linear-gradient(
