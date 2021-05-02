@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const APIKEY = "82e9634f64c867f4dc0c13bd02f37a5b";
+const APIKEY = process.env.REACT_APP_TMDBAPIKEY;
 
 export const paths = {
   fetchTrending: "/trending/all/week",
