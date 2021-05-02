@@ -32,3 +32,16 @@
 // .btn-container {
 //   display: flex;
 // }
+
+.go-back-button {
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
+  display: inline-block;
+  i {
+    margin-right: 1rem;
+  }
+  &:hover {
+    cursor: pointer;
+    color: rgba($white, 0.5);
+  }
+}

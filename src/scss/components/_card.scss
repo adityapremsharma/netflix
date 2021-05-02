@@ -47,27 +47,19 @@
   }
 }
 
-.card-search-container {
-  padding: 5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
+.card-search {
+  width: 12.5rem;
+  max-height: 20rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+  transition: transform 0.5s;
+  backface-visibility: hidden;
+  border-radius: 5px;
 
-  .card-search {
-    width: 12.5rem;
-    max-height: 20rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0.5rem;
-    transition: transform 0.5s;
-    backface-visibility: hidden;
-    border-radius: 5px;
-
-    &:hover {
-      transform: perspective(1px) scale(1.2);
-      z-index: 1001;
-      cursor: pointer;
-    }
+  &:hover {
+    transform: perspective(1px) scale(1.2);
+    z-index: 1001;
+    cursor: pointer;
   }
 }
 
@@ -77,8 +69,5 @@
     bottom: 0;
     left: 0;
     right: 0;
-  }
-  .card-search-container {
-    padding: 2rem;
   }
 }

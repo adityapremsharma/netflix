@@ -1,4 +1,4 @@
-.list {
+.horizontal-scrollbar-list {
   .heading-secondary {
     padding-left: 5rem;
     position: relative;
@@ -48,6 +48,20 @@
     }
   }
 }
+
+.vertical-scrollable-list {
+  padding: 5rem;
+  .heading-secondary {
+    text-align: center;
+  }
+  &-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .list-lift-up {
   position: absolute;
   top: 87.5vh;
@@ -59,12 +73,15 @@
 }
 
 @include respond(phone) {
-  .list {
+  .horizontal-scrollbar-list {
     .heading-secondary {
       padding-left: 2rem;
     }
     &-container {
       padding: 2rem 2rem;
     }
+  }
+  .vertical-scrollable-list {
+    padding: 2rem;
   }
 }

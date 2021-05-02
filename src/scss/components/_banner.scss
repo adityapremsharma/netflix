@@ -21,6 +21,12 @@
     .para-primary {
       max-width: 55rem;
     }
+
+    .para-secondary {
+      span {
+        margin-left: 1rem;
+      }
+    }
   }
 
   &-linear-gradient {

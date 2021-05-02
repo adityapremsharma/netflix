@@ -15,7 +15,7 @@ export default function Trailer(props) {
       <div className="background-dark">
         <div className="video-card">
           <i
-            class="fas fa-times"
+            className="fas fa-times"
             onClick={() => {
               setTrailerURL("");
               setDisplayTrailerCard(false);

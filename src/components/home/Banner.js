@@ -19,7 +19,10 @@ export default function Banner() {
   const [trailerURL, setTrailerURL] = useState("");
   const [displayTrailerCard, setDisplayTrailerCard] = useState(false);
 
-  const { setBackgroundDark } = useContext(StylesContext);
+  const {
+    state: { exploreAllDisplay },
+    setBackgroundDark,
+  } = useContext(StylesContext);
 
   const {
     state: { banner },
@@ -47,7 +50,9 @@ export default function Banner() {
 
   return (
     <header
-      className={!searchInput ? "banner" : "banner banner-search"}
+      className={
+        !searchInput && !exploreAllDisplay ? "banner" : "banner banner-search"
+      }
       style={{
         backgroundImage: `url(${baseImageURL + banner?.backdrop_path})`,
       }}
@@ -57,7 +62,10 @@ export default function Banner() {
           <h1 className="heading-primary">
             {banner?.original_title || banner?.name}
           </h1>
-          <p className="para-secondary">Ratings: {banner?.vote_average}</p>
+          <p className="para-secondary">
+            Ratings: {banner?.vote_average}
+            <span>{`(${banner?.original_language})`}</span>
+          </p>
           <p className="para-primary">{overview}</p>
           <div className="btn-container">
             <button

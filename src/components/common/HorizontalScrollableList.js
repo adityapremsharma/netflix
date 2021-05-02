@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
 import Card from "./Card";
 
 import movieTrailer from "movie-trailer";
 import { Context as StylesContext } from "../../context/stylesProvider";
 import { Context as StreamContext } from "../../context/streamProvider";
-import Trailer from "../common/Trailer";
+import Trailer from "./Trailer";
 
 export default function List(props) {
-  const { title, data, verticalCard } = props;
+  const { title, data, onClick, verticalCard } = props;
   const baseImageURL = "https://image.tmdb.org/t/p/original/";
 
   const { setBackgroundDark } = useContext(StylesContext);
@@ -52,18 +51,17 @@ export default function List(props) {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="list">
-      <h1 className="heading-secondary">
+    <div className="horizontal-scrollbar-list">
+      <h2 className="heading-secondary">
         {title}
-        <Link to="/message">
-          <span className="explore-button">
-            <span>Explore all</span>
-            <i class="fas fa-chevron-right"></i>
-          </span>
-        </Link>
-      </h1>
 
-      <div className="list-container">
+        <span className="explore-button" onClick={() => onClick(data, title)}>
+          <span>Explore all</span>
+          <i className="fas fa-chevron-right"></i>
+        </span>
+      </h2>
+
+      <div className="horizontal-scrollbar-list-container">
         {displayData.map((item) => {
           const imagePath = verticalCard
             ? item.poster_path
