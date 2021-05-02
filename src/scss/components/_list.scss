@@ -29,14 +29,13 @@
         }
       }
     }
-    &:hover {
-      .explore-button {
-        visibility: visible;
-        opacity: 1;
-      }
+  }
+  &:hover {
+    .explore-button {
+      visibility: visible;
+      opacity: 1;
     }
   }
-
   &-container {
     display: flex;
     overflow-y: hidden;
