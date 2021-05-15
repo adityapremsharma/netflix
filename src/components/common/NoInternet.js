@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 export default function NoInternet() {
-  const [onlineStatus, setOnlineStatus] = useState(true);
+  const [onlineStatus, setOnlineStatus] = useState(navigator.onLine);
 
   useEffect(() => {
     window.addEventListener("online", () => setOnlineStatus(true));
@@ -11,7 +11,7 @@ export default function NoInternet() {
       window.removeEventListener("online", null);
       window.removeEventListener("offline", null);
     };
-  }, [onlineStatus]);
+  }, []);
 
   const reloadPage = () => {
     window.location.reload();
