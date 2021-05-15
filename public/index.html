@@ -24,15 +24,21 @@
   </head>
   <body>
     <div id="root"></div>
-    <script>
+    <!-- <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("serviceworker.js")
-            .then((reg) => console.log("Success: ", reg.scope))
-            .catch((err) => console.error("Failure: ", err));
+            .register("serviceworker.js", { scope: "/" }) // {scope: "/"} is not required here as the serviceworker script
+            .then((reg) => console.log("Success: ", reg.scope)) // i.e. this one in the left only, sits in the root directory
+            .catch((err) => console.error("Failure: ", err)); // where the served file is i.e. index.js
         });
+
+        IndexController.prototype._updateReady = () => {
+          var toast = this._toastsView.show("New version available", {
+            buttons: ["whatever"],
+          });
+        };
       }
-    </script>
+    </script> -->
   </body>
 </html>
