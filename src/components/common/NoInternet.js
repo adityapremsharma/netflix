@@ -34,7 +34,7 @@ export default function NoInternet() {
   };
 
   return !onlineStatus ? (
-    <div className="no-internet">
+    <div className="no-internet" style={{ position: "fixed" }}>
       <h3>
         Please check your internet connection.
         <span onClick={reloadPage}>Reload</span>
@@ -44,7 +44,7 @@ export default function NoInternet() {
     !dismissOnlineStatus && (
       <div
         className="no-internet"
-        style={{ backgroundColor: "rgba(0, 255, 0, 0.5)" }}
+        style={{ position: "fixed", backgroundColor: "rgba(0, 255, 0, 0.5)" }}
       >
         <h3>You're back online! Enjoy.</h3>
       </div>

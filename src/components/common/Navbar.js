@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import netflixLogo from "../../media/images/netflix-logo.svg";
 import netflixMenuLogo from "../../media/images/netflix-logo.png";
 import { Context as StreamContext } from "../../context/streamProvider";
+import NoInternet from "./NoInternet";
 
 export default function Navbar() {
   let focusInput = useRef(null);
@@ -28,6 +29,7 @@ export default function Navbar() {
 
   return (
     <div>
+      <NoInternet />
       <input type="checkbox" id="navbar" className="netflix-menu-checkbox" />
       <label htmlFor="navbar" className="netflix-menu-icon">
         <img
