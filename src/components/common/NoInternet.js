@@ -11,7 +11,7 @@ export default function NoInternet() {
       window.removeEventListener("online", null);
       window.removeEventListener("offline", null);
     };
-  }, []);
+  }, [onlineStatus]);
 
   const reloadPage = () => {
     window.location.reload();
