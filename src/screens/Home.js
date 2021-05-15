@@ -6,6 +6,7 @@ import { Context as ApiContext } from "../context/apiProvider";
 import { Context as StreamContext } from "../context/streamProvider";
 import { Context as StylesContext } from "../context/stylesProvider";
 import VerticalScrollableList from "../components/common/VerticalScrollableList";
+import NoInternet from "../components/common/NoInternet";
 
 export default function Home() {
   const [searchData, setSearchData] = useState([]);
@@ -102,6 +103,7 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
+      <NoInternet />
       <div
         className={
           !searchInput && !exploreAllDisplay

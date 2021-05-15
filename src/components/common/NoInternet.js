@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 export default function NoInternet() {
+  const history = useHistory();
+
   const [onlineStatus, setOnlineStatus] = useState(navigator.onLine);
   const [dismissOnlineStatus, setDismissOnlineStatus] = useState(true);
 
@@ -9,6 +12,7 @@ export default function NoInternet() {
     setOnlineStatus(true);
     setTimeout(() => {
       setDismissOnlineStatus(true);
+      reloadPage();
     }, 2000);
   };
 
@@ -20,10 +24,13 @@ export default function NoInternet() {
       window.removeEventListener("online", null);
       window.removeEventListener("offline", null);
     };
+
+    // eslint-disable-next-line
   }, []);
 
   const reloadPage = () => {
-    window.location.reload();
+    // window.location.reload();
+    history.go(0);
   };
 
   return !onlineStatus ? (
