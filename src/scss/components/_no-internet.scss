@@ -1,11 +1,11 @@
 .no-internet {
-  position: absolute;
+  position: fixed;
   min-height: 2rem;
   background-color: rgba($red, 0.5);
   z-index: 1004;
   text-align: center;
   @include absCenter;
-  top: 10%;
+  top: 12.5%;
   padding: 2rem;
   border-radius: 5px;
   white-space: nowrap;
